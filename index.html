@@ -135,8 +135,6 @@ tr.mine td{box-shadow:inset 3px 0 0 var(--accent)}
 .dot-ggp-grid{display:grid;grid-template-columns:1fr 60px 60px;border-bottom:1px solid var(--border)}
 .dot-ggp-cell{padding:5px 6px;font-size:12px;text-align:center}
 .dot-ggp-cell:first-child{text-align:left;padding-left:8px}
-.dot-wa-bubble{background:#E1F5EE;border-radius:12px 12px 12px 2px;padding:10px 14px}
-.dot-wa-pre{margin:0;white-space:pre-wrap;font-family:inherit;font-size:12px;color:#085041;line-height:1.6}
 .dot-save-btn{width:100%;padding:10px;border-radius:7px;border:none;cursor:pointer;font-weight:700;font-size:13px;font-family:inherit;transition:all .2s}
 .dot-tabla-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border)}
 .dot-tabla-cell{padding:4px 8px;font-size:12px;text-align:center}
@@ -1181,7 +1179,6 @@ function DotacionView(props) {
   var tarifEvS=_useState(_saved.tarifEv||0);       var tarifEv=tarifEvS[0],setTarifEv=tarifEvS[1];
   var histTabS=_useState('tabla'); var histTab=histTabS[0],setHistTab=histTabS[1];
   var targetGgpS=_useState(_saved.targetGgp||0);   var targetGgp=targetGgpS[0],setTargetGgp=targetGgpS[1];
-  var copiedS=_useState(false); var copied=copiedS[0],setCopied=copiedS[1];
   function buildCalcState(){
     return {volAm:volAm,volPm:volPm,volRealAm:volRealAm,volRealPm:volRealPm,shareLarge:shareLarge,shareOversize:shareOversize,horasProceso:horasProceso,baseGross:baseGross,grossOverride:grossOverride,
       rfAm:rfAm,vacAm:vacAm,ausAm:ausAm,ausRealAm:ausRealAm,presAm:presAm,
@@ -1312,8 +1309,6 @@ function DotacionView(props) {
     var txt=vv>0?'+'+vv+' faltan':vv<0?vv+' sobran':'justo';
     return h('span',{className:'dot-diff-badge',style:{background:bg,color:col}},(vv>0?'▲':vv<0?'▼':'●')+' '+txt);
   }
-  var mensaje='Buenas equipo, les comparto el volumen estimado para mañana:\n\n*AM*\n'+CONFIG.SITE_NAME+'     '+fmtN(volAm)+'\n\n'+c.evFcstAm+' eventual'+(c.evFcstAm===1?'':'es')+' | Apertura '+horaAm+'\n\n*PM*\n'+CONFIG.SITE_NAME+'     '+fmtN(volPm)+'\n\n'+c.evFcstPm+' eventual'+(c.evFcstPm===1?'':'es')+' | Apertura '+horaPm;
-  function copiar(){navigator.clipboard.writeText(mensaje).then(function(){setCopied(true);setTimeout(function(){setCopied(false);},2000);});}
   function turnoSection(cfg){
     var isAm=cfg.label==='TURNO AM';
     var bg=isAm?'#FAEEDA':'#E6F1FB', accent=isAm?'#854F0B':'#185FA5';
@@ -1425,13 +1420,6 @@ function DotacionView(props) {
         h('div',{className:'dot-param-row'},
           h('span',null,'Apertura PM'),
           h('input',{type:'text',value:horaPm,onChange:function(e){setHoraPm(e.target.value);},className:'dot-num-input',style:{width:80,textAlign:'center',background:'#E6F1FB',borderColor:'#185FA5',color:'#185FA5'}})
-        )
-      ),
-      h('div',{className:'dot-card'},
-        h('div',{className:'dot-sec-hdr',style:{background:'#085041'}},'Mensaje WhatsApp'),
-        h('div',{style:{background:'#0a1929',padding:12}},h('div',{className:'dot-wa-bubble'},h('pre',{className:'dot-wa-pre'},mensaje))),
-        h('div',{style:{padding:10}},
-          h('button',{onClick:copiar,style:{width:'100%',padding:'8px 0',borderRadius:6,border:'none',cursor:'pointer',fontWeight:700,fontSize:13,fontFamily:'inherit',background:copied?'#E6F4EA':'#085041',color:copied?'#1D7A4A':'#fff',transition:'all .2s'}},copied?'✓ Copiado!':'Copiar mensaje')
         )
       )
     ),
