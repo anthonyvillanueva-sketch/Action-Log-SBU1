@@ -40,16 +40,8 @@
   "mantenimiento": [],
   "layout": null,
   "entrenamientos": {
-    "cursos": [
-      {
-        "id": "1568b262-bdd2-42b9-b5d8-17fb1d3b0dbb",
-        "nombre": "",
-        "link": "",
-        "porcentaje": 0,
-        "vence": ""
-      }
-    ],
+    "cursos": [],
     "lideres": [],
-    "actualizado": "2026-09-24T19:05:05.013Z"
+    "actualizado": "2026-09-24T19:05:15.657Z"
   }
 }
