@@ -1,0 +1,27 @@
+{
+  "entries": [],
+  "calcState": null,
+  "tier1": null,
+  "tier1Hist": [],
+  "inventory": {
+    "activos": [],
+    "items": [
+      {
+        "id": "4193a8ce-b373-4f9f-8e63-b5dd59ddeab2",
+        "tipo": "Insumo",
+        "item": "",
+        "minimo": 0,
+        "conteos": [
+          {
+            "fecha": "24/09/2026",
+            "valor": 0
+          }
+        ]
+      }
+    ]
+  },
+  "equipamiento": [],
+  "mantenimiento": [],
+  "layout": null,
+  "entrenamientos": null
+}
