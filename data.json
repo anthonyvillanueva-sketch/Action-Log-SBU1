@@ -1,5 +1,21 @@
 {
-  "entries": [],
+  "entries": [
+    {
+      "evolutivo": [],
+      "fotos": [],
+      "emails": "",
+      "fecha": "2026-09-24",
+      "pilar": "Gestión de Paquetes",
+      "tarea": "NODOS",
+      "accion": "Pendiente",
+      "responsables": "Carol",
+      "fechaLimite": "2026-09-24",
+      "progreso": 5,
+      "resuelto": false,
+      "id": "e1f4803b-d458-4896-bd0c-950503c8e35b",
+      "createdAt": "2026-09-24T19:00:20.549Z"
+    }
+  ],
   "calcState": null,
   "tier1": null,
   "tier1Hist": [],
